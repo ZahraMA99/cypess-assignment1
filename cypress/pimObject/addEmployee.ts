@@ -44,11 +44,12 @@ class addEmployee {
     //this.elements.statusEnabled().click();
     //this.elements.statusDisabled().click();
     this.elements.save().children().eq(2).click();
-    //this.elements.assertEmployeeName().should('${firstName}')
   }
+  //- Write an assertion for the Employee name text shown in the header !! not complete yet..
   checkEmployeeName(firstName: string, LastName: string) {
-    this.elements.assertEmployeeName().should('have.string', `${firstName} ${ LastName}`);
-  
+    this.elements
+      .assertEmployeeName()
+      .should("have.string", `${firstName} ${LastName}`);
   }
 }
 export default addEmployee;
