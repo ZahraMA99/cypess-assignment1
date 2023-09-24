@@ -23,7 +23,7 @@ describe("login", () => {
 
   // add employee test case 
   it("add employee", () => {
-    addEmployeeObj.addNewEmployee("Zahra", "Mahmoud", "Aqel", "zahra99");
+    addEmployeeObj.addNewEmployee("Zahra", "Mahmoud", "Aqel", "zahra99", "123456789Xx", "123456789Xx");
   });
 
 });
