@@ -12,3 +12,11 @@ describe("check login", () => {
   });
 });
 
+it("should display employee information", () => {
+  cy.fixture("login.json").then((employee) => {
+    const { userName, password, message } = employee;
+    cy.contains(userName);
+    cy.contains(password);
+    cy.contains(message);
+  });
+});
