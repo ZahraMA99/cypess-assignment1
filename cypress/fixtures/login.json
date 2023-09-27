@@ -1,0 +1,42 @@
+{
+    "valid": {
+        "userName": "admin",
+        "password": "admin123",
+        "message": "Dashboard open"
+    },
+    "inValidUser": {
+        "userName": "zahra",
+        "password": "admin123",
+        "message": "Invalid credentials"
+    },
+    "inValidPassword": {
+        "userName": "admin",
+        "password": "123",
+        "message": "Invalid credentials"
+    },
+    "caseSensitive-userName": {
+        "userName": "AdMin",
+        "password": "admin123",
+        "message": "Dashboard open"
+    },
+    "caseSensitive-password": {
+        "userName": "Admin",
+        "password": "adMIN123",
+        "message": "Invalid credentials"
+    },
+    "emptyUserName": {
+        "userName": "",
+        "password": "admin123",
+        "message": "Invalid credentials"
+    },
+    "emptyPassword": {
+        "userName": "admin",
+        "password": "",
+        "message": "Invalid credentials"
+    },
+    "emptyUserNameAndPassword": {
+        "userName": "",
+        "password": "",
+        "message": "Invalid credentials"
+    }
+}
