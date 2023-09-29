@@ -1,40 +1,29 @@
-class addEmployee {
-  // Elemnts
-  elements = {
-    mainMenuItems: () => cy.get(".oxd-sidepanel-body"),
-    addEmp: () => cy.get(".oxd-button--secondary"),
-    employeeInputName: () => cy.get(".--name-grouped-field"),
-    saveNewEmp: () => cy.get('button[type="submit"]'),
-    createLoginSwitch: () => cy.get(".oxd-switch-wrapper"),
-    userName: () => cy.get("#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.orangehrm-employee-container > div.orangehrm-employee-form > div:nth-child(4) > div > div:nth-child(1) > div > div:nth-child(2) > input"),
-    password: () => cy.get("#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.orangehrm-employee-container > div.orangehrm-employee-form > div.oxd-form-row.user-password-row > div > div.oxd-grid-item.oxd-grid-item--gutters.user-password-cell > div > div:nth-child(2) > input"),
-    confirmPassword: () => cy.get("#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.orangehrm-employee-container > div.orangehrm-employee-form > div.oxd-form-row.user-password-row > div > div:nth-child(2) > div > div:nth-child(2) > input"),
-    save: () => cy.get(".oxd-form-actions"),
-    //employeeNickName: () => cy.get(".oxd-form > :nth-child(1) > :nth-child(2) > .oxd-grid-item--gutters > .oxd-input-field-bottom-space > :nth-child(2) > input "),
-  };
-  // Actions
-  addNewEmployee(
-    firstName: string,
-    middleName: string,
-    lastName: string,
-    userName: string,
-    password: string,
-    confirmPassword: string,
-  ) {
-    this.elements.mainMenuItems().contains("PIM").click();
-    this.elements.addEmp().eq(1).click();
-    this.elements.employeeInputName().children().eq(0).type(firstName);
-    this.elements.employeeInputName().children().eq(1).type(middleName);
-    this.elements.employeeInputName().children().eq(2).type(lastName);
-    this.elements.createLoginSwitch().click();
-    this.elements.userName().type(userName);
-    this.elements.password().type(password);
-    this.elements.confirmPassword().type(confirmPassword);
-    this.elements.save().children().eq(2).click();
-  }
+class addEmployee{ 
+  elements ={ 
+      MainMenuItems : ()=>cy.get('.oxd-sidepanel-body'), 
+      addEmp : ()=>cy.get('.oxd-button--secondary'), 
+      EmployeeInputName: ()=>cy.get('.--name-grouped-field'), 
+      createLoginDetails : ()=> cy.get('input[type="checkbox"]'), 
+      userName:()=>cy.get('.oxd-input'), 
+      password:()=>cy.get('input[type="password"]'), 
+      saveNewEmp: ()=>cy.get('button[type="submit"]') 
+  } 
 
-}
+  addNewEmployee(firstName: string , MiddleName: string , LastName: string, userName: string, password: string, 
+      confirmPassword: string){ 
+      this.elements.MainMenuItems().contains('PIM').click(); 
+      this.elements.addEmp().eq(1).click(); 
+      this.elements.EmployeeInputName().children().eq(0).type(firstName); 
+      this.elements.EmployeeInputName().children().eq(1).type(MiddleName); 
+      this.elements.EmployeeInputName().children().eq(2).type(LastName); 
+
+      this.elements.createLoginDetails().click({ force: true }); 
+      this.elements.userName().eq(5).type(userName); 
+      this.elements.password().eq(0).type(password); 
+      this.elements.password().eq(1).type(confirmPassword); 
+      this.elements.saveNewEmp().click(); 
+
+  } 
+
+} 
 export default addEmployee;
-
-
-

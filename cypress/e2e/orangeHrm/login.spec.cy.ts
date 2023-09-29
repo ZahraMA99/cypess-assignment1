@@ -83,8 +83,6 @@ describe('Login Home Page', () => {
     it('Hidden Password', () => { 
         cy.get('@user').then((userLogin: any) => { 
             cy.get('input[name="password"]').type(userLogin[0].password).should('have.attr', 'type', 'password'); 
- 
         }) 
     }) 
- 
 })
