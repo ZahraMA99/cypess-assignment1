@@ -1,6 +1,6 @@
-class id {
-  static randomFunctionNewID() {
-    return Math.round(1000 * Math.random());
+export default class id {
+  static randomFunctionNewID(maxNumber = 1000) {
+    return Math.round(maxNumber * Math.random());
   }
 }
-export default id;
+
