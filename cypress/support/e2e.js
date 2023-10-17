@@ -18,6 +18,7 @@ import './commands'
 import "@shelex/cypress-allure-plugin";
 import 'cypress-plugin-api'
 import '../support/Utils/APIUtils'
+import '../support/Utils/ScheduleAnInterviewUtils'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 const registerCypressGrep = require('@cypress/grep')
