@@ -1,8 +1,8 @@
 class loginPage { 
     elements = { 
-        userName: () => cy.get('[placeholder="username"]'), 
+        userName: () => cy.get('[placeholder="Username"]'), 
         // userName: () => cy.getByCy("Username"), 
-        password: () => cy.get('[placeholder="password"]'), 
+        password: () => cy.get('[placeholder="Password"]'), 
         // password: () => cy.getByCy("Password"), 
         loginBtn: () => cy.get('button') 
     } 
