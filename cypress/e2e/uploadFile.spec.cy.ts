@@ -13,7 +13,7 @@ describe("OrangHRM - Upload File", () => {
   it("O1: upload file", () => {
     const path = "cypress/fixtures/file.pdf"
     uploadFileObj.uploadFile(path);
-
+    uploadFileObj.validateUploadingFile();
 
   });
 });
