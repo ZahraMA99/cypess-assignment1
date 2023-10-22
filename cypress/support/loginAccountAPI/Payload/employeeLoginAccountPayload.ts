@@ -4,7 +4,7 @@ export interface ICreateEmployeeAPIPayload {
     middleName: string,
     lastName: string,
     empPicture: null,
-    employeeId: number,
+    employeeId: string,
 
   }
   

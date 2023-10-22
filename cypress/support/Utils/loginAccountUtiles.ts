@@ -18,7 +18,7 @@ declare global {
 Cypress.Commands.add(
   "addNewEmployee",
   (method: string, requestURL: string, employeeLoginAccountPayload: ICreateEmployeeAPIPayload) => {
-    return cy.api({
+    return cy.request({
       method: method,
       url: requestURL,
       body: employeeLoginAccountPayload,

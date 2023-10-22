@@ -1,8 +1,13 @@
 import employee from "../../support/Helpers/loginAccount";
+import logOutInPage from "../../support/pageObjects/logOutInPage";
 import loginPage from "../../support/pageObjects/loginPage";
 
+
 const loginObj: loginPage = new loginPage();
-let empNum: string; 
+const logoutObj: logOutInPage = new logOutInPage();
+
+let empNum: string;
+//let arr: string[] = [];
 
 describe("OrangHRM - Validation", () => {
   beforeEach(function () {
@@ -13,9 +18,11 @@ describe("OrangHRM - Validation", () => {
   it("O1: create Employee", () => {
     employee.addNewEmployeeViaAPI().then((resolve) => {
       empNum = `${resolve}`;
-      cy.log(empNum);
+      //arr.push(empNum);
     });
-   // validateTaskObj.validateTask();
-  });
 
+    //employee.createLoginDetailsViaAPI("meroo", "123456Zz/", arr[arr.length]);
+    logoutObj.logOut();
+    //loginObj.userLogin("meroo", "123456Zz/");
+  });
 });
