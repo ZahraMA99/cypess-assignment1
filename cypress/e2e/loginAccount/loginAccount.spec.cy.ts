@@ -7,7 +7,6 @@ const loginObj: loginPage = new loginPage();
 const logoutObj: logOutInPage = new logOutInPage();
 
 let empNum: string;
-//let arr: string[] = [];
 
 describe("OrangHRM - Validation", () => {
   beforeEach(function () {
@@ -18,11 +17,10 @@ describe("OrangHRM - Validation", () => {
   it("O1: create Employee", () => {
     employee.addNewEmployeeViaAPI().then((resolve) => {
       empNum = `${resolve}`;
-      //arr.push(empNum);
+      employee.createLoginDetailsViaAPI("lana", "123456Zz/", `${empNum}`);
     });
 
-    //employee.createLoginDetailsViaAPI("meroo", "123456Zz/", arr[arr.length]);
     logoutObj.logOut();
-    //loginObj.userLogin("meroo", "123456Zz/");
+    loginObj.userLogin("lana", "123456Zz/");
   });
 });

@@ -1,5 +1,5 @@
-import loginPage from "../support/pageObjects/loginPage";
-import uploadFile from "../support/pageObjects/uploadFilePage";
+import loginPage from "../../support/pageObjects/loginPage";
+import uploadFile from "../../support/pageObjects/uploadFilePage";
 
 const loginObj: loginPage = new loginPage();
 const uploadFileObj: uploadFile = new uploadFile();

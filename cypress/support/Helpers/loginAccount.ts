@@ -22,14 +22,15 @@ export default class employee {
         }
       );
     });
+    
   }
 
-  static createLoginDetailsViaAPI(username: string, password: string, employeeNum: string) {
-    cy.request({
+  static createLoginDetailsViaAPI(username: string, password: string, employeeNumber: string) {
+    cy.api({
       method: "POST",
       url: `${URLs.loginDetails}`,
       body: {
-        empNumber: employeeNum,
+        empNumber: employeeNumber,
         password: password,
         status: true,
         userRoleId: 2,

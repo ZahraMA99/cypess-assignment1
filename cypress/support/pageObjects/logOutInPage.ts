@@ -1,6 +1,6 @@
 export default class logOutInPage{
     elements = {
-        dropDown: () => cy.get(".oxd-userdropdown-tab"),
+        dropDown: () => cy.get(".oxd-userdropdown-icon"),
         logoutBtn: () => cy.get('a[href*="/web/index.php/auth/logout"]'),
     }
 
