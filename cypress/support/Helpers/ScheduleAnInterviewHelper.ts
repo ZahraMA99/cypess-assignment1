@@ -14,12 +14,11 @@ export default class candidate {
         (response) => {
           candidateID = response.data.id;
            resolve(candidateID);
-           
         }
       );
     });
   }
-
+  //
   static shortlistCandidateStatus(candidateID: string) { 
     cy.visit(`https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/${candidateID}`) 
     cy.addNewCandidate('PUT', `${URLs.candidates}/${candidateID}/shortlist`, userInit.shortlistCandidate()) 

@@ -1,7 +1,7 @@
 import { ICreateCandidateAPIPayload } from "../CandidateAPI/Payload/CandidateAPIPayload";
 import genericMethods from "../Helpers/genericFunctions";
 import id from "../Helpers/genericFunctions"
-
+//
 export default class userInit {
 
   static initUser(): ICreateCandidateAPIPayload{

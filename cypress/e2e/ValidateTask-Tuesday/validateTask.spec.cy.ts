@@ -7,6 +7,7 @@ const loginObj: loginPage = new loginPage();
 const interviewObj: scheduleInterview = new scheduleInterview();
 const validateTaskObj: validateTask = new validateTask();
 let candidateID: string;
+//
 
 describe("OrangHRM - Validation", () => {
   beforeEach(function () {

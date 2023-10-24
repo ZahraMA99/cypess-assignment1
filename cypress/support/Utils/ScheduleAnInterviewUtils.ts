@@ -1,4 +1,3 @@
-// custom command in utils 
 
 import { ICreateCandidateAPIPayload } from "../CandidateAPI/Payload/CandidateAPIPayload";
 import { ICreateCandidateAPIResponse } from "../CandidateAPI/Response/CandidateAPIResponse"; 
@@ -23,7 +22,7 @@ Cypress.Commands.add(
       url: requestURL,
       body: candidatePayload,
       //failOnStatusCode: false,
-     // headers: {'Content-Type': 'application/json'}
+      // headers: {'Content-Type': 'application/json'}
     }).its('body');
   }
 );
