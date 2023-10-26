@@ -1,11 +1,14 @@
+//import { defineConfig } from 'cypress'
 const { defineConfig } = require("cypress"); 
 const allureWriter = require("@shelex/cypress-allure-plugin/writer"); 
  
 module.exports = defineConfig({ 
   e2e: { 
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}", 
-    baseUrl: "https://opensource-demo.orangehrmlive.com/web/index.php", 
+    baseUrl: "https://opensource-demo.orangehrmlive.com",
+    //baseUrl: "https://api.realworld.io", 
     setupNodeEvents(on, config) { 
+      require('@cypress/grep/src/plugin')(config);
       allureWriter(on, config); 
       return config; 
     }, 
@@ -18,5 +21,8 @@ module.exports = defineConfig({
  
     videosFolder: "allure-results/", 
     screenshotOnRunFailure: true, 
+    snapshotOnly: true
   }, 
 });
+
+
