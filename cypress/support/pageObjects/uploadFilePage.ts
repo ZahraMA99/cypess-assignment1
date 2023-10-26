@@ -9,7 +9,6 @@ export default class uploadFile {
     lastName: () => cy.get(".oxd-input.oxd-input--active.orangehrm-lastname"),
     email: () => cy.get(":nth-child(3) > .oxd-grid-3 > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-input"), //getByCy("Type here"),
     browsIcon: () => cy.get(".oxd-file-button"), 
-    //uploadIcon: () => cy.get(".oxd-file-input-icon"),
     uploadFile: () => cy.get('input[type = "file"]'), 
     //resumeInput: () => cy.get('.oxd-input-group'),
     uploadTxt: () => cy.get('.oxd-file-input-div'),
@@ -23,7 +22,7 @@ export default class uploadFile {
     this.elements.lastName().type("mm");
     this.elements.email().type("m@gmail.com"); 
     this.elements.browsIcon().click(); 
-    this.elements.uploadFile().selectFile(path).click();
+    this.elements.uploadFile().selectFile(path).click({force: true});
     this.elements.saveBtn().click();
   }
 
