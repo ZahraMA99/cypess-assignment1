@@ -5,9 +5,9 @@ import genericMethods from "../Helpers/genericFunctions";
 export default class userInit {
   static initUser(): ICreateEmployeeAPIPayload {
     return {
-      firstName: `zahra${genericMethods.generateRandomID()}`,
+      firstName: `luna${genericMethods.generateRandomID()}`,
       middleName: `M${genericMethods.generateRandomID()}`,
-      lastName: `Aqel${genericMethods.generateRandomID()}`,
+      lastName: `l${genericMethods.generateRandomID()}`,
       empPicture: null,
       employeeId: `${genericMethods.generateRandomID()}I`,
     };

@@ -1,5 +1,5 @@
 export default class genericMethods {
-  static generateRandomID(maxNumber = 1000) {
+  static generateRandomID(maxNumber = 100) {
     return Math.round(maxNumber * Math.random());
   }
 }
