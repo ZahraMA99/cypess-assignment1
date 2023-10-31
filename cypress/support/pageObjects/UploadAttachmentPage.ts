@@ -3,28 +3,92 @@ export default class uploadAttachment {
     mainMenuItems: () => cy.get(".oxd-sidepanel-body"),
     navbar: () => cy.get(".oxd-topbar-body-nav"),
     tableBody: () => cy.get(".oxd-table-body"),
-    //editIcon: () => cy.get(".bi-pencil-fill"),
-    addBtn: () => cy.get(".orangehrm-attachment-header"),
-    browseBtn: () => cy.get(".oxd-file-input-icon"),
+    addVacancyBtn: () => cy.get(".orangehrm-header-container"),
     inputFile: () => cy.get('input[type="file"]'),
     saveContainer: () => cy.get(".orangehrm-background-container"),
-    //saveBtn: () => cy.get('button[type="Submit"]'),
+    vacancyName: () => cy.get(".oxd-input--active"),
+    jobTitleSelector: () => cy.get(".oxd-select-text-input"),
+    dropDownPicker: () => cy.get(".oxd-select-dropdown.--positon-bottom"),
+    hiringManagerPicker: () => cy.get('[placeholder="Type for hints..."]'),
+    hiringManagerOptions: () => cy.get(".oxd-autocomplete-dropdown"),
+    saveBtn: () => cy.get(".oxd-button--secondary"),
+    addAttachmentBtn: () => cy.get(".orangehrm-attachment-header"),
+    saveAttachmentBtn: () =>
+      cy.get(
+        ".:nth-child(3) > .oxd-form > .oxd-form-actions > .oxd-button--secondary"
+      ),
+    assertion: () => cy.get(".orangehrm-paper-container"),
   };
 
-  accessAddAttachmentBtn() {
+  clickIntoRecruitmentLink() {
     this.elements.mainMenuItems().contains("Recruitment").click();
-    this.elements.navbar().contains("Vacancies").click();
-    this.elements.tableBody().find(".oxd-table-card").as("vacancy record");
-    cy.get("@vacancy record").eq(1).find(".bi-pencil-fill").click({force: true});
-   
-  }
-  
-  uploadFile(path: string) {
-    this.elements.addBtn().contains("Add").click();
-   // this.elements.browseBtn().click();
-    //this.elements.inputFile().attachFile(path);
-    this.elements.saveContainer().children().should('have.length', 3).get('button[type="Submit"]').contains("Save").click();
   }
 
-  // Validation
+  clickIntoVacanciesLink() {
+    this.elements.navbar().contains("Vacancies").click();
+  }
+
+  clicksIntoAddBtnForVacancy() {
+    this.elements.addVacancyBtn().contains("Add").click();
+  }
+
+  typeVacancyName() {
+    this.elements.vacancyName().eq(1).click().type("accounttmt");
+  }
+
+  clickIntoJobTitleSelector() {
+    this.elements.jobTitleSelector().click({ force: true }).invoke("show");
+    this.elements.dropDownPicker().contains("Account Assistant").click();
+  }
+
+  selectHiringManager() {
+    cy.fixture("addVacancy").as("data");
+    cy.get("@data").then((vacancyinfo: any) => {
+      this.elements
+        .hiringManagerPicker()
+        .type(vacancyinfo.hiringManagerPicker)
+        .invoke("show");
+      this.elements
+        .hiringManagerOptions()
+        .contains(vacancyinfo.hiringManager)
+        .click();
+    });
+  }
+
+  clickIntoSaveBtn() {
+    this.elements.saveBtn().click({ force: true });
+  }
+
+  clicksIntoAddBtnForAttachment() {
+    this.elements.addAttachmentBtn().contains("Add").click({ force: true });
+  }
+
+  addNewVacancyViaUI() {
+    this.clickIntoRecruitmentLink();
+    this.clickIntoVacanciesLink();
+    this.clicksIntoAddBtnForVacancy();
+    this.typeVacancyName();
+    this.clickIntoJobTitleSelector();
+    this.selectHiringManager();
+    this.clickIntoSaveBtn();
+  }
+
+  uploadFile(path: string) {
+    this.clicksIntoAddBtnForAttachment();
+    this.elements.inputFile().selectFile(path, { force: true });
+    this.elements
+      .saveContainer()
+      .find('button[type="Submit"]')
+      .eq(1)
+      .click({ force: true });
+  }
+
+  assertionOnFileName() {
+    cy.reload();
+    this.elements
+      .assertion()
+      .contains(".oxd-table-cell")
+      .eq(1)
+      .should("file.txt");
+  }
 }

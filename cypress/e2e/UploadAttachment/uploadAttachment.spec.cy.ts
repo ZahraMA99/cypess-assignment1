@@ -4,6 +4,7 @@ import uploadAttachment from "../../support/pageObjects/UploadAttachmentPage";
 const loginObj: loginPage = new loginPage();
 const uploadAttachmentObj: uploadAttachment = new uploadAttachment();
 
+const path = "cypress/fixtures/file.txt";
 
 describe("OrangHRM - Upload Vacancy Attachment", () => {
   beforeEach(function () {
@@ -12,10 +13,8 @@ describe("OrangHRM - Upload Vacancy Attachment", () => {
   });
 
   it("O1: upload vacancy attachment", () => {
-    const path = "cypress/fixtures/file.txt"
-    uploadAttachmentObj.accessAddAttachmentBtn();
+    uploadAttachmentObj.addNewVacancyViaUI();
     uploadAttachmentObj.uploadFile(path);
-    //uploadFileObj.validateUploadingFile();
-
+    uploadAttachmentObj.assertionOnFileName();
   });
 });
