@@ -1,6 +1,6 @@
 export default class logOutInPage{
     elements = {
-        dropDown: () => cy.get(".oxd-userdropdown-icon"),
+        dropDown: () => cy.get(".oxd-userdropdown-tab > .bi-caret-down-fill"),
         logoutBtn: () => cy.contains('.oxd-userdropdown-link', "Logout"),
     }
 
